@@ -1,7 +1,6 @@
 import {deleteMessage, addMessage, openThread} from 'redux/actions/Actions';
 
 
-
 export const mapDispatchToTabsProps = (dispatch) => ({
     onClick: (id) => (dispatch(openThread(id)))
 });
