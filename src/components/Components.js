@@ -2,8 +2,6 @@ import React from 'react';
 import {mapDispatchToTabsProps, mapDispatchToThreadProps, mapStateToTabsProps, mapStateToThreadProps, mergeThreadProps} from 'redux/maps/Maps';
 import {connect} from 'react-redux';
 
-
-
 const Tabs = (props) => (
     <div className='ui top attached tabular menu'>
         {props
