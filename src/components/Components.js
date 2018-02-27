@@ -1,8 +1,8 @@
 import React from 'react';
-import {mapDispatchToTabsProps, mapDispatchToThreadProps, mapStateToTabsProps, mapStateToThreadProps, mergeThreadProps} from 'redux/maps/Maps';
-import {connect} from 'react-redux';
 
-const Tabs = (props) => (
+
+
+export const Tabs = (props) => (
     <div className='ui top attached tabular menu'>
         {props
             .tabs
@@ -65,12 +65,11 @@ const MessageList = (props) => (
     </div>
 );
 
-const Thread = (props) => (
+export const Thread = (props) => (
     <div className='ui center aligned basic segment'>
         <MessageList messages={props.thread.messages} onClick={props.onMessageClick}/>
         <TextFieldSubmit onSubmit={props.onMessageSubmit}/>
     </div>
 );
 
-export const ThreadTabs = connect(mapStateToTabsProps, mapDispatchToTabsProps)(Tabs);
-export const ThreadDisplay = connect(mapStateToThreadProps, mapDispatchToThreadProps, mergeThreadProps)(Thread);
+

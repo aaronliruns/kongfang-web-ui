@@ -2,7 +2,7 @@ import React from 'react';
 import {createStore} from 'redux';
 import {Provider,connect} from 'react-redux';
 import reducer from 'redux/reducers/Reducers';
-import {ThreadTabs, ThreadDisplay} from 'components/Components';
+import {ThreadTabs, ThreadDisplay} from 'containers/Containers';
 
 
 const store = createStore(reducer);
