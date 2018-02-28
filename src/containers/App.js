@@ -2,14 +2,15 @@ import React from 'react';
 import {createStore} from 'redux';
 import {Provider,connect} from 'react-redux';
 import reducer from 'redux/reducers/Reducers';
-import {ThreadTabs, ThreadDisplay} from 'containers/Containers';
+import {ThreadTabs, ThreadDisplay, MobileThreadTabs} from 'containers/Containers';
 
 
 const store = createStore(reducer);
 
 const App = () => (
-    <div className='ui segment'>
+    <div className='ui page grid'>
         <ThreadTabs/>
+        <MobileThreadTabs/>
         <ThreadDisplay/>
     </div>
 );

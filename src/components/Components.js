@@ -3,21 +3,55 @@ import React from 'react';
 
 
 export const Tabs = (props) => (
-    <div className='ui top attached tabular menu'>
-        {props
-            .tabs
-            .map((tab, index) => (
-                <div
-                    key={index}
-                    className={tab.active
-                    ? 'active item'
-                    : 'item'}
-                    onClick={() => props.onClick(tab.id)}>
-                    {tab.title}
+        
+        <div className="computer tablet only row">
+            <div className="ui inverted menu navbar">
+            <div className="brand item">PC Project Name</div>
+            {props
+                .tabs
+                .map((tab, index) => (
+                    <div
+                        key={index}
+                        className={tab.active
+                        ? 'active item'
+                        : 'item'}
+                        onClick={() => props.onClick(tab.id)}>
+                        {tab.title}
+                    </div>
+                ))
+            }
+            </div>
+        </div>
+);
+
+export const MobileTabs = (props) => (
+
+    <div className="mobile only narrow row">
+        <div className="ui inverted navbar menu">
+            <div className="brand item">Mobile Project Name</div>
+            <div className="right menu open">
+                <div className="menu item">
+                    <i class="align justify icon"></i>
                 </div>
-            ))
-}
+            </div>    
+        </div>
+        <div className="ui vertical navbar menu">
+        {props
+                .tabs
+                .map((tab, index) => (
+                    <div
+                        key={index}
+                        className={tab.active
+                        ? 'active item'
+                        : 'item'}
+                        onClick={() => props.onClick(tab.id)}>
+                        {tab.title}
+                    </div>
+                ))
+        }
+        </div>
     </div>
+
 );
 
 class TextFieldSubmit extends React.Component {
