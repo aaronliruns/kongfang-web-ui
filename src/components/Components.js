@@ -20,7 +20,7 @@ export const Tabs = (props) => (
         <div className="computer tablet only row">
             <div className="ui inverted menu navbar">
             <div className="brand item">PC Project Name</div>
-            <NavItems tabs={props.tabs}/>
+            <NavItems tabs={props.tabs} onClick={props.onClick}/>
             </div>
         </div>
 );
@@ -37,7 +37,7 @@ export const MobileTabs = (props) => (
             </div>    
         </div>
         <div className="ui vertical navbar menu">
-        <NavItems tabs={props.tabs}/>
+        <NavItems tabs={props.tabs} onClick={props.onClick}/>
         </div>
     </div>
 

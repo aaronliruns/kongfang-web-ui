@@ -1,6 +1,14 @@
 import {combineReducers} from 'redux';
 import uuid from 'uuid';
 
+//1.States and dispatches are held by containers
+//2.and pass down to child components through props
+//3.maps bridge states and dispatches from containers to first-level components
+//4.reducers create immutable new states based on the old states and action
+//5.only top-level container connects to the store
+//6.dispatch actions to reducers
+   
+
 const reducer = combineReducers({
     activeThreadId: activeThreadIdReducer, 
     threads: threadsReducer
