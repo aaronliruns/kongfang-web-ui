@@ -32,7 +32,7 @@ export const MobileTabs = (props) => (
             <div className="brand item">Mobile Project Name</div>
             <div className="right menu open">
                 <div className="menu item">
-                    <i class="align justify icon"></i>
+                    <i className="align justify icon"></i>
                 </div>
             </div>    
         </div>
