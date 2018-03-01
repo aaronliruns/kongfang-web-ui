@@ -1,25 +1,26 @@
 import React from 'react';
 
-
+const NavItems = (props) => (
+    props
+        .tabs
+        .map((tab, index) => (
+            <div
+                key={index}
+                className={tab.active
+                ? 'active item'
+                : 'item'}
+                onClick={() => props.onClick(tab.id)}>
+                {tab.title}
+            </div>
+        ))
+);
 
 export const Tabs = (props) => (
         
         <div className="computer tablet only row">
             <div className="ui inverted menu navbar">
             <div className="brand item">PC Project Name</div>
-            {props
-                .tabs
-                .map((tab, index) => (
-                    <div
-                        key={index}
-                        className={tab.active
-                        ? 'active item'
-                        : 'item'}
-                        onClick={() => props.onClick(tab.id)}>
-                        {tab.title}
-                    </div>
-                ))
-            }
+            <NavItems tabs={props.tabs}/>
             </div>
         </div>
 );
@@ -36,19 +37,7 @@ export const MobileTabs = (props) => (
             </div>    
         </div>
         <div className="ui vertical navbar menu">
-        {props
-                .tabs
-                .map((tab, index) => (
-                    <div
-                        key={index}
-                        className={tab.active
-                        ? 'active item'
-                        : 'item'}
-                        onClick={() => props.onClick(tab.id)}>
-                        {tab.title}
-                    </div>
-                ))
-        }
+        <NavItems tabs={props.tabs}/>
         </div>
     </div>
 
