@@ -9,7 +9,7 @@ import { BrowserRouter as Router } from "react-router-dom";
 const store = createStore(reducer);
 
 const App = () => (
-    <div className='ui page grid'>
+    <div className='ui page centered grid'>
         <ThreadTabs/>
         <MobileThreadTabs/>
         <ThreadDisplay/>

@@ -1,19 +1,21 @@
 import React from 'react';
-import { Route, Redirect, Switch } from 'react-router-dom';
+import { Route, Redirect, Switch, NavLink, Link} from 'react-router-dom';
 import AuthRoute from 'components/AuthRoute';
+
 
 const NavItems = (props) => (
     props
         .tabs
         .map((tab, index) => (
-            <div
+            <Link
                 key={index}
                 className={tab.active
                 ? 'active item'
                 : 'item'}
+                to={tab.loc}
                 onClick={() => props.onClick(tab.id)}>
                 {tab.title}
-            </div>
+            </Link>
         ))
 );
 
@@ -27,23 +29,32 @@ export const Tabs = (props) => (
         </div>
 );
 
-export const MobileTabs = (props) => (
+export class MobileTabs extends React.Component {
 
-    <div className="mobile only narrow row">
-        <div className="ui inverted navbar menu">
-            <div className="brand item">Mobile Project Name</div>
-            <div className="right menu open">
-                <div className="menu item">
-                    <i className="align justify icon"></i>
+    render() {
+        //TODO: Turn this in to state
+        const dStyle={
+            display: 'block'
+        };
+        
+        return (
+            <div className="mobile only  row">
+                <div className="ui inverted navbar menu">
+                    <div className="brand item">Mobile Project Name</div>
+                    <div className="right menu open">
+                        <div className="menu item">
+                            <i className="align justify icon"></i>
+                        </div>
+                    </div>    
                 </div>
-            </div>    
-        </div>
-        <div className="ui vertical navbar menu">
-        <NavItems tabs={props.tabs} onClick={props.onClick}/>
-        </div>
-    </div>
+                <div className="ui vertical navbar menu" style={dStyle}>
+                <NavItems tabs={this.props.tabs} onClick={this.props.onClick}/>
+                </div>
+            </div>
+        )
+    }
 
-);
+};
 
 class TextFieldSubmit extends React.Component {
     state = {

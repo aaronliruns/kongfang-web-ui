@@ -39,15 +39,18 @@ function findThreadIndex(threads, action) {
 function threadsReducer(state = [
     {
         id: '1-fca2',
-        title: 'Buzz Aldrin',
+        title: 'Add CNY Accounts',
+        loc: '/addacctcny',
         messages: messagesReducer([], {})
     }, {
         id: '2-be91',
-        title: 'Michael Collins',
+        title: 'Add PHP Accounts',
+        loc: '/addacctphp',
         messages: messagesReducer([], {})
     }, {
         id: '3-da7z',
-        title: 'Aaron Li',
+        title: 'Add USD Accounts',
+        loc: '/addacctusd',
         messages: messagesReducer([], {})
     }
 ], action) {

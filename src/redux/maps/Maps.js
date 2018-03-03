@@ -7,6 +7,7 @@ export const mapDispatchToTabsProps = (dispatch) => ({
     dispatch: dispatch
 });
 
+//Massage states and send down as props
 export const mapStateToThreadProps = (state) => ({
     thread: state
         .threads
@@ -24,13 +25,15 @@ export const mergeThreadProps = (stateProps, dispatchProps) => ({
     onMessageSubmit: (text) => (dispatchProps.dispatch(addMessage(text, stateProps.thread.id)))
 });
 
+//Massage states and send down as props
 export const mapStateToTabsProps = (state) => {
     const tabs = state
         .threads
         .map(t => ({
             title: t.title,
             active: t.id === state.activeThreadId,
-            id: t.id
+            id: t.id,
+            loc:t.loc
         }));
 
     return {tabs};
