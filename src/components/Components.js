@@ -1,4 +1,6 @@
 import React from 'react';
+import { Route, Redirect, Switch } from 'react-router-dom';
+import AuthRoute from 'components/AuthRoute';
 
 const NavItems = (props) => (
     props
@@ -94,5 +96,52 @@ export const Thread = (props) => (
         <TextFieldSubmit onSubmit={props.onMessageSubmit}/>
     </div>
 );
+
+export const ThreadContent  = (props) => (
+    <div className='ui center aligned basic segment'>
+        <AuthRouter {...props}/>
+    </div>
+);
+
+const DummyComponentCNY = (Props) => (
+    <h2 className="ui center aligned icon header">
+       <i className="circular users icon"></i>
+    Chinese Yuan
+    </h2>
+);
+
+const DummyComponentPHP = (Props) => (
+    <h2 className="ui center aligned icon header">
+       <i className="circular users icon"></i>
+    Philippines Peso
+    </h2>
+);
+
+const DummyComponentUSD = (Props) => (
+    <h2 className="ui center aligned icon header">
+       <i className="circular users icon"></i>
+    U.S. Dollar
+    </h2>
+);
+
+const NoMatch = ({ location }) => (
+    <div className='ui inverted red raised very padded text container segment'>
+      <strong>Error!</strong> No route found matching:
+      <div className='ui inverted black segment'>
+        <code>{location.pathname}</code>
+      </div>
+    </div>
+);
+
+export const AuthRouter = (props) => (
+    <Switch>
+        <AuthRoute path='/addacctcny' component={DummyComponentCNY} />
+        <AuthRoute path='/addacctphp' component={DummyComponentPHP} />
+        <AuthRoute path='/addacctusd' component={DummyComponentUSD} />
+        <Route component={DummyComponentCNY} />
+  </Switch>
+);
+
+
 
 
