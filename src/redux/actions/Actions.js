@@ -10,3 +10,7 @@ export function addMessage(text, threadId) {
 export function openThread(id) {
     return {type: 'OPEN_THREAD', id: id};
 }
+
+export function toggleNav() {
+    return {type: 'TOGGLE_NAVITEMS'};
+}

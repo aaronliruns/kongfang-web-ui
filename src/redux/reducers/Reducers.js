@@ -10,9 +10,18 @@ import uuid from 'uuid';
    
 
 const reducer = combineReducers({
-    activeThreadId: activeThreadIdReducer, 
+    activeThreadId: activeThreadIdReducer,
+    mobileNavItemsVisible:  toggleNavItemVisibility,
     threads: threadsReducer
 });
+
+function toggleNavItemVisibility(state = false, action) {
+    if (action.type === 'TOGGLE_NAVITEMS') {
+        return !state;
+    } else {
+        return state;
+    }
+}
 
 function activeThreadIdReducer(state = '1-fca2', action) {
     if (action.type === 'OPEN_THREAD') {

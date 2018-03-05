@@ -32,18 +32,16 @@ export const Tabs = (props) => (
 export class MobileTabs extends React.Component {
 
     render() {
-        //TODO: Turn this in to state
         const dStyle={
-            display: 'block'
+            display: this.props.navItemsVisible ? 'block' : 'none'
         };
-        
         return (
             <div className="mobile only  row">
                 <div className="ui inverted navbar menu">
                     <div className="brand item">Mobile Project Name</div>
                     <div className="right menu open">
                         <div className="menu item">
-                            <i className="align justify icon"></i>
+                            <i className="align justify icon" onClick={this.props.onToggle}></i>
                         </div>
                     </div>    
                 </div>
@@ -57,10 +55,20 @@ export class MobileTabs extends React.Component {
 };
 
 class TextFieldSubmit extends React.Component {
+    /*
+    Do I have to keep all my app’s state in my Redux store?
+    We could have kept the value of the input inside MobileTabs in our edux store. This is a 
+    perfectly valid and common approach.
+    However, we often find that using component state in certain areas is just fine. We like
+    using component state for data that will always be isolated to the component, like form
+    input data or whether or not a drop-down is open. If in the future it ever feels “wrong,” 
+    it’s easy to move that state into Redux.
+    */
     state = {
         value: ''
     };
 
+    //No need to disptach
     onChange = (e) => {
         this.setState({value: e.target.value})
     };

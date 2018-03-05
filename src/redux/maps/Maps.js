@@ -1,9 +1,10 @@
-import {deleteMessage, addMessage, openThread} from 'redux/actions/Actions';
+import {deleteMessage, addMessage, openThread, toggleNav} from 'redux/actions/Actions';
 
 
 //props.onClick
 export const mapDispatchToTabsProps = (dispatch) => ({
     onClick: (id) => (dispatch(openThread(id))),
+    onToggle: ()=>(dispatch(toggleNav())),
     dispatch: dispatch
 });
 
@@ -35,6 +36,7 @@ export const mapStateToTabsProps = (state) => {
             id: t.id,
             loc:t.loc
         }));
+    const navItemsVisible = state.mobileNavItemsVisible;
 
-    return {tabs};
+    return {tabs, navItemsVisible};
 };
