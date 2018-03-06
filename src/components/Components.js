@@ -23,7 +23,7 @@ export const Tabs = (props) => (
         
         <div className="computer tablet only row">
             <div className="ui inverted menu navbar">
-            <div className="brand item">PC Project Name</div>
+            <Link to="/" className="brand item">PC Project Name</Link>
             <NavItems tabs={props.tabs} onClick={props.onClick}/>
             </div>
         </div>
@@ -38,7 +38,7 @@ export class MobileTabs extends React.Component {
         return (
             <div className="mobile only  row">
                 <div className="ui inverted navbar menu">
-                    <div className="brand item">Mobile Project Name</div>
+                    <Link to="/" className="brand item">Mobile Project Name</Link>
                     <div className="right menu open">
                         <div className="menu item">
                             <i className="align justify icon" onClick={this.props.onToggle}></i>
@@ -122,6 +122,13 @@ export const ThreadContent  = (props) => (
     </div>
 );
 
+const HomeView = (Props) => (
+    <h2 className="ui center aligned icon header">
+       <i className="home icon"></i>
+    Home Sweet Home
+    </h2>
+);
+
 const DummyComponentCNY = (Props) => (
     <h2 className="ui center aligned icon header">
        <i className="circular users icon"></i>
@@ -157,8 +164,9 @@ export const AuthRouter = (props) => (
         <AuthRoute path='/addacctcny' component={DummyComponentCNY} />
         <AuthRoute path='/addacctphp' component={DummyComponentPHP} />
         <AuthRoute path='/addacctusd' component={DummyComponentUSD} />
-        <Route component={DummyComponentCNY} />
-  </Switch>
+        <Route path='/' exact component={HomeView} />
+        <Route component={NoMatch} />
+     </Switch>
 );
 
 
